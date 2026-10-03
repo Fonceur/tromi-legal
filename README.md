@@ -28,7 +28,7 @@ The App fetches publicly available data from the following sources:
 | Open Charge Map | EV charger locations | Geographic bounding box (not your exact location); the request also carries an API key that authenticates the app, not you |
 | OpenStreetMap (Overpass API) | Station amenities and park entry points (welcome/visitor-center nodes) | Geographic bounding box (not your exact location) |
 | Société des traversiers du Québec | Ferry schedules (GTFS) | Standard HTTP headers only |
-| Ministère des Transports du Québec | Highway rest areas | Standard HTTP headers only |
+| Transports et Mobilité durable Québec | Highway rest areas | Standard HTTP headers only |
 | Tourisme Québec / Données Québec | Tourist attractions (SIT Québec) | Standard HTTP headers only |
 | Ministère des Ressources naturelles et des Forêts du Québec | Parks (TRQ_100k) and per-park polygon geometry | Standard HTTP headers only |
 | Wikipedia (REST summary) | Park descriptions | Article title only (e.g. "Parc national de la Gaspésie") plus a contact-bearing User-Agent header per Wikimedia policy |

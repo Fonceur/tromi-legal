@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** June 20, 2026
+**Last updated:** August 15, 2026
 
 Patrick Roy ("we", "us", or "our") operates the Tromi mobile application ("the App"). This Privacy Policy explains what information the App accesses, how it is used, and your choices.
 
@@ -25,8 +25,8 @@ The App fetches publicly available data from the following sources:
 |--------|------|-------------|
 | Régie de l'énergie du Québec | Gas station prices | Standard HTTP headers only |
 | Le Circuit électrique | EV charger locations | Standard HTTP headers only |
-| Open Charge Map | EV charger locations | Geographic bounding box (not your exact location) |
-| OpenStreetMap (Overpass API) | Station amenities | Geographic bounding box (not your exact location) |
+| Open Charge Map | EV charger locations | Geographic bounding box (not your exact location); the request also carries an API key that authenticates the app, not you |
+| OpenStreetMap (Overpass API) | Station amenities and park entry points (welcome/visitor-center nodes) | Geographic bounding box (not your exact location) |
 | Société des traversiers du Québec | Ferry schedules (GTFS) | Standard HTTP headers only |
 | Ministère des Transports du Québec | Highway rest areas | Standard HTTP headers only |
 | Tourisme Québec / Données Québec | Tourist attractions (SIT Québec) | Standard HTTP headers only |
@@ -37,7 +37,7 @@ The App fetches publicly available data from the following sources:
 | Statistics Canada (WDS) | Monthly average retail gasoline prices (Montréal + Québec) for the in-app Gas Prices chart | Standard HTTP headers only (a request for the public price table) |
 | OpenFreeMap | Vector map tiles for the map display | Standard HTTP headers and the map tile coordinates needed to render the area you are viewing |
 
-No personal information, device identifiers, or precise location coordinates are sent to these services. Geographic bounding boxes used in API queries cover broad areas and cannot identify individual users. Trip-planner requests to OpenRouteService include the coordinates of the stops you assembled — these are only sent on explicit "Compute" actions, are not associated with any account or identifier, and are not stored beyond what OpenRouteService logs to operate the service. Requests to Nominatim (OpenStreetMap) are made only when you drop or GPS-locate a trip stop (the stop's coordinates are sent to fetch a readable label) or when you use the trip planner's "Choose a contact" option (the chosen contact's postal address is sent to convert it to coordinates) — they carry no account or identifier. The Wikipedia and Nominatim User-Agent identifies the app and version (e.g. "Tromi/1.0.3") plus a public Google Play Store URL — it does not include any user data.
+No personal information, device identifiers, or precise location coordinates are sent to these services. Geographic bounding boxes used in API queries cover broad areas and cannot identify individual users. Trip-planner requests to OpenRouteService include the coordinates of the stops you assembled — these are only sent on explicit "Compute" actions, are not associated with any account or identifier, and are not stored beyond what OpenRouteService logs to operate the service. Requests to Nominatim (OpenStreetMap) are made only when you drop or GPS-locate a trip stop (the stop's coordinates are sent to fetch a readable label) or when you use the trip planner's "Choose a contact" option (the chosen contact's postal address is sent to convert it to coordinates) — they carry no account or identifier. The Wikipedia, Nominatim, and Overpass User-Agent identifies the app and its current version (e.g. "Tromi/1.x") plus a public Google Play Store URL — it does not include any user data.
 
 ### Contacts
 
@@ -51,10 +51,10 @@ The following data is stored on your device only, using Android's Room database 
 - App settings and preferences (display mode, language, search radius, default postal code / location)
 - Cached station, charger, ferry, rest-area, attraction, and park data
 - Cached park boundary polygons fetched on demand
+- Cached park entry points (welcome/visitor-center locations from OpenStreetMap)
 - Cached Wikipedia park descriptions (article snippet + URL)
 - Price history snapshots (30 days)
-- Saved destinations for route planning
-- Saved multi-stop trip plans (stops + computed road polyline + per-leg distance/duration)
+- Saved multi-stop trip plans (stops + computed road polyline + per-leg distance/duration, plus any non-routed places you keep on the trip)
 - Price alert configurations
 
 This data is **never** transmitted off your device.
@@ -71,6 +71,10 @@ This data is **never** transmitted off your device.
 ## Notifications
 
 The App may request permission to send local notifications for price alerts you configure. These notifications are generated entirely on your device — no push notification service is involved.
+
+## Android Auto
+
+The App declares the `androidx.car.app.MAP_TEMPLATES` permission so it can display nearby stations and your active trip on an Android Auto screen. This permission grants access to car-screen templates only — it does not collect any data from you or your vehicle.
 
 ## Children's Privacy
 
@@ -89,4 +93,3 @@ We may update this Privacy Policy from time to time. Changes will be posted with
 If you have questions about this Privacy Policy, you can contact us at:
 
 **Email:** patrick.roy07@gmail.com
-

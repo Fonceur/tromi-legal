@@ -1,0 +1,20 @@
+# Read by jekyll-seo-tag, which GitHub Pages runs on README.md: it writes the page's
+# <title> and its link-preview tags (Open Graph + Twitter card) for Slack, Messages,
+# WhatsApp… Without this file it fell back to the repo name ("tromi-legal") and
+# description ("Privacy policy"), with no image. `title` is also the heading the
+# default theme shows above the policy.
+title: Tromi
+description: "How the Tromi app for Android handles your information: what it accesses, how it is used, and your choices."
+lang: en-CA
+
+# The image the Tromi pages on fonceur.github.io use: the Play feature graphic.
+# Crawlers need an absolute URL.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: https://fonceur.github.io/tromi/images/og-en.png
+        width: 1024
+        height: 500
+        alt: "The Tromi icon and name, with the tagline “Throw my money out the window? Not with Tromi.”"

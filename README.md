@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** October 10, 2026
+**Last updated:** October 12, 2026
 
 Patrick Roy ("we", "us", or "our") operates the Tromi mobile application ("the App"). This Privacy Policy explains what information the App accesses, how it is used, and your choices.
 
@@ -16,7 +16,7 @@ The App requests access to your device's location (precise/GPS or approximate) t
 - Display nearby stations on Android Auto
 - Start a new trip in the trip planner from where you are
 
-Location data is processed on your device and is **not** transmitted to our servers. It leaves your device only through the trip planner, as described under Network Requests below: a new trip starts from your current position, whose coordinates are sent to OpenStreetMap Nominatim to fetch a readable place name, and the coordinates of your trip stops are sent to OpenRouteService when you tap "Compute". If you deny location permission, the App falls back to a default postal code you can configure in Settings.
+Location data is processed on your device and is **not** transmitted to our servers. It leaves your device only through the trip planner, as described under Network Requests below: a new trip starts from your current position, whose coordinates are sent to OpenStreetMap Nominatim to fetch a readable place name, and the coordinates of your trip stops are sent to OpenRouteService when you tap "Compute trip" (or "Recompute"). If you deny location permission, the App falls back to a default postal code you can configure in Settings.
 
 ### Network Requests
 
@@ -33,12 +33,12 @@ The App fetches publicly available data from the following sources:
 | Tourisme Québec / Données Québec | Tourist attractions (SIT Québec) | Standard HTTP headers only |
 | Ministère des Ressources naturelles et des Forêts du Québec | Parks (TRQ_100k) and per-park polygon geometry | Standard HTTP headers only |
 | Wikipedia (REST summary) | Park descriptions | Article title only (e.g. "Parc national de la Gaspésie") plus an app-identifying User-Agent header, as Wikimedia policy requires |
-| OpenRouteService | Driving directions and stop-order optimization for the multi-stop trip planner | Coordinates of the trip stops you have chosen (and only when you tap "Compute"); the request also carries an API key that authenticates the app, not you |
+| OpenRouteService | Driving directions and stop-order optimization for the multi-stop trip planner | Coordinates of the trip stops you have chosen (and only when you tap "Compute trip" or "Recompute"); the request also carries an API key that authenticates the app, not you |
 | OpenStreetMap (Nominatim) | Place labels for trip stops, and looking up a contact's address for the trip planner | The coordinates of a trip stop placed from a location — one you drop on the map or place via GPS, including the automatic starting stop of a new trip, which uses your current position when location is enabled (to fetch a readable place name); or the postal address text of a contact you explicitly pick (to convert it to map coordinates). Sent only for those trip-stop actions, plus an app-identifying User-Agent header |
 | Statistics Canada (WDS) | Monthly average retail gasoline prices (Montréal + Québec for regular, premium and diesel, plus the Canada average for regular) for the in-app Gas Prices chart | Standard HTTP headers only (a request for the public price table) |
 | OpenFreeMap | Vector map tiles for the map display | Standard HTTP headers and the map tile coordinates needed to render the area you are viewing |
 
-No personal information or device identifiers are sent to these services, and your location is sent only as trip-stop coordinates to Nominatim and OpenRouteService, as described here. Geographic bounding boxes used in API queries cover broad areas and cannot identify individual users. Trip-planner requests to OpenRouteService include the coordinates of the stops you assembled — these are only sent on explicit "Compute" actions, are not associated with any account or identifier, and are not stored beyond what OpenRouteService logs to operate the service. Requests to Nominatim (OpenStreetMap) are made only when a trip stop is placed from a location — when you drop or GPS-locate a stop, and automatically for a new trip's starting stop when location is enabled (the stop's coordinates are sent to fetch a readable label) — or when you use the trip planner's "Choose a contact" option (the chosen contact's postal address is sent to convert it to coordinates). They carry no account or identifier. The Wikipedia, Nominatim, and Overpass User-Agent identifies the app and its current version (e.g. "Tromi/1.x") plus a public Google Play Store URL — it does not include any user data.
+No personal information or device identifiers are sent to these services, and your location is sent only as trip-stop coordinates to Nominatim and OpenRouteService, as described here. Geographic bounding boxes used in API queries cover broad areas and cannot identify individual users. Trip-planner requests to OpenRouteService include the coordinates of the stops you assembled — these are only sent when you tap "Compute trip" or "Recompute", are not associated with any account or identifier, and are not stored beyond what OpenRouteService logs to operate the service. Requests to Nominatim (OpenStreetMap) are made only when a trip stop is placed from a location — when you drop or GPS-locate a stop, and automatically for a new trip's starting stop when location is enabled (the stop's coordinates are sent to fetch a readable label) — or when you use the trip planner's "Choose a contact" option (the chosen contact's postal address is sent to convert it to coordinates). They carry no account or identifier. The Wikipedia, Nominatim, and Overpass User-Agent identifies the app and its current version (e.g. "Tromi/1.x") plus a public Google Play Store URL — it does not include any user data.
 
 To keep cached data, price alerts, and the home-screen widget current, the App also repeats these public-data requests periodically in the background (by default about every 12 hours, adjustable in Settings) using Android's WorkManager. Background refreshes fetch only the public datasets for the layers you have enabled — they send no location.
 
